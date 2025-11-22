@@ -227,6 +227,8 @@
             font-weight: bold;
             margin-top: 1rem;
             transition: background 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
         
         .cta-button:hover {
@@ -306,6 +308,7 @@
             width: 90%;
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
         }
         
         .contact-modal-close {
@@ -315,6 +318,19 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--gray);
+            background: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-modal-close:hover {
+            background: #f1f3f4;
         }
         
         .phone-number {
@@ -643,7 +659,7 @@
                 <li><strong>市场洞察：</strong> 提供实时市场数据和竞争对手情报</li>
             </ul>
             
-            <a href="#" class="cta-button" id="contactExpert">立即联系egatee专家</a>
+            <button class="cta-button" id="contactExpert">立即联系egatee专家</button>
         </section>
         
         <section class="card">
@@ -678,7 +694,7 @@
     
     <footer>
         <div class="container">
-            <p>© 2025 华东建设 - 非洲市场调研报告 | 数据来源：行业报告、市场调研及egatee平台数据</p>
+            <p>© 2023 华东建设 - 非洲市场调研报告 | 数据来源：行业报告、市场调研及egatee平台数据</p>
             <p>本报告仅供参考，实际决策需结合最新市场动态</p>
         </div>
     </footer>
@@ -686,7 +702,7 @@
     <!-- 联系专家模态框 -->
     <div class="contact-modal" id="contactModal">
         <div class="contact-modal-content">
-            <span class="contact-modal-close" id="closeModal">&times;</span>
+            <button class="contact-modal-close" id="closeModal">&times;</button>
             <h3>联系egatee专家</h3>
             <p>我们的专家将为您提供专业的非洲市场进入咨询</p>
             <div class="phone-number">侯经理 15649205280</div>
@@ -867,6 +883,13 @@
         // 点击模态框外部关闭
         window.addEventListener('click', function(e) {
             if (e.target === document.getElementById('contactModal')) {
+                document.getElementById('contactModal').style.display = 'none';
+            }
+        });
+        
+        // 按ESC键关闭模态框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
                 document.getElementById('contactModal').style.display = 'none';
             }
         });
